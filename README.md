@@ -1,9 +1,5 @@
 # Javascript_bootcamp
-This repo will hold all the codes I will be writing during the learning process of Javascript
 
-There are sub-branches divided into specific sections in which files will be added as the course proceeds.
+objects allow us to store related data in a single place. when callingfunctions, we can pass an object as an argument.This lets you pass all the related data to a function without having to pass in many individual arguments
 
-This repo and Javascript bootcamp I am currently undergoing starts from scratch and builds up gradually to cover all the features of the language, and then using all those features together to create a complete application.
-
-This page is of objects
-
+The file object-references contain an Expense tracker.

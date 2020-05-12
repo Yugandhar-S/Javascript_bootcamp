@@ -6,8 +6,8 @@ students score, total possible score
 A 90-100, B 80-89, C 70-79, D 60-69 F 0-59
 */
 
-let gradeCal = function (studentsScore, possibleScore) {
-  let perCal = (studentsScore / possibleScore) * 100;
+const gradeCal = function (studentsScore, possibleScore) {
+  const perCal = (studentsScore / possibleScore) * 100;
   let letterGrade = "";
 
   /* Done by me
@@ -42,8 +42,8 @@ let gradeCal = function (studentsScore, possibleScore) {
   return `You got a ${letterGrade} (${perCal} %)...!!!`;
 };
 
-let gradeOne = gradeCal(9, 20);
+const gradeOne = gradeCal(9, 20);
 console.log(gradeOne);
 
-let gradeTwo = gradeCal(89, 150);
+const gradeTwo = gradeCal(89, 150);
 console.log(gradeTwo);

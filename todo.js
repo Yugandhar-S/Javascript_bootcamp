@@ -29,29 +29,59 @@ Todo: 1.The first item
         2.The Second item
         3.The third item, and so on
 
+/*
+1. convert array to an array of objects -> text, completed
+2. to create a function to remove todo by text value
+
+deleteTodo(todos,'text string)
+console.log(todos)
 */
 
-const todo = [
+/* const todo = [
   "Bring Groceries",
   "Complete the English Assignment",
   "Start Javascript project",
   "Push all the projects",
   "Watch Sherlock Season 5",
+]; */
+
+const todo = [
+  {
+    text: "Order lunch",
+    completed: true,
+  },
+  {
+    text: "Clean kitchen",
+    completed: false,
+  },
+  {
+    text: "Buy Groceries",
+    completed: true,
+  },
+  {
+    text: "Do work",
+    completed: false,
+  },
+  {
+    text: "To Excercise",
+    completed: true,
+  },
 ];
 
-console.log(`You have ${todo.length} todo's...!!!`);
+console.log(todo);
 
-todo.splice(2, 1);
-todo.push("Buy Coffee");
-todo.shift();
+let deleteTodo = function (array, text) {
+  let deletedTask = array.splice(
+    array.findIndex(function (task) {
+      return task.text.toLowerCase() === text.toLowerCase();
+    }),
+    1
+  );
+};
 
-//console.log(todo);
-//console.log(`Todo : ${todo[0]}, ${todo[todo.length - 2]}`);
+deleteTodo(todo, "cLean Kitchen");
 
-console.log(`You have ${todo.length} todo's...!!!`);
-todo.forEach(function (item, index) {
-  console.log(`${index + 1}:- ${item}`);
-});
+console.log(todo);
 
 /* for (let count = 0; count < todo.length; count++) {
   console.log(`${count + 1}:- ${todo[count]}`);

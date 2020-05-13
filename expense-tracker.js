@@ -30,25 +30,25 @@ const account = {
 
   getAccountSummary: function () {
     let totalExpenses = 0;
+    let totalIncome = 0;
+    let accountBalance = 0;
+
     this.expenses.forEach(function (expense) {
       totalExpenses = totalExpenses + expense.Amount;
     });
 
-    let totalIncome = 0;
     this.income.forEach(function (amount) {
       totalIncome = totalIncome + amount.Income;
     });
 
-    return `${this.name} has balance of $${
-      totalIncome - totalExpenses
-    }. $${totalIncome} in income.$${totalExpenses}in expenses.`;
+    accountBalance = totalIncome - totalExpenses;
+
+    return `${this.name} has balance of $${accountBalance}. $${totalIncome} in income. $${totalExpenses}in expenses.`;
   },
 };
 
 account.addExpense("Rent", 45);
 account.addExpense("Coffee", 45);
 account.addIncome("Job", 100);
-console.log(account.income);
 console.log(account.getAccountSummary());
-
 //addIncome("Cashback", 2000);

@@ -35,6 +35,16 @@ Todo: 1.The first item
 
 deleteTodo(todos,'text string)
 console.log(todos)
+
+Challenge 5 :
+
+console.log(getThingsToDo(todos))
+create a function that filter the list of todos that have completed value of false
+
+Challenge 6:
+
+to sort the array in completed status 
+
 */
 
 /* const todo = [
@@ -45,7 +55,7 @@ console.log(todos)
   "Watch Sherlock Season 5",
 ]; */
 
-const todo = [
+const todos = [
   {
     text: "Order lunch",
     completed: true,
@@ -64,27 +74,33 @@ const todo = [
   },
   {
     text: "To Excercise",
-    completed: true,
+    completed: false,
   },
 ];
 
-console.log(todo);
 
-let deleteTodo = function (array, text) {
-  let deletedTask = array.splice(
-    array.findIndex(function (task) {
-      return task.text.toLowerCase() === text.toLowerCase();
-    }),
-    1
-  );
+const sortTodos = function (todos) {
+  todos.sort(function (a, b) {
+    if (a.completed && !b.completed) {
+      return -1;
+    } else if (b.completed && !a.completed) {
+      return 1;
+    } else return 0;
+  });
 };
 
-deleteTodo(todo, "cLean Kitchen");
+sortTodos(todos);
+console.log(todos);
 
-console.log(todo);
+const sortTodoText = function (todos) {
+  todos.sort(function (a, b) {
+    if (a.text.toLowerCase() < b.text.toLowerCase()) {
+      return -1;
+    } else if ((b.text.toLowerCase() < a.text.toLowerCase())) {
+      return 1;
+    } else return 1;
+  });
+};
 
-/* for (let count = 0; count < todo.length; count++) {
-  console.log(`${count + 1}:- ${todo[count]}`);
-}
-
-using the forEach with array is preferrable so commenting this for loop block*/
+sortTodoText(todos);
+console.log(todos);

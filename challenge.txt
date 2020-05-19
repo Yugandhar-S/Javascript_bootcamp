@@ -1,0 +1,6 @@
+Create a HTML file
+An h1 and 5 p tags
+Server that folder and view the doc in the browser
+
+Create and link a javascript file to the HTML
+Remove all p tags that have the in the text. Iterating challenge

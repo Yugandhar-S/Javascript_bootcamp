@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day2</title>
+</head>
+<body>
+    <div id='before-click'>
+        <h1>Welcome, this is before pressing</h1>
+        <p>Press this button for the name. </p>
+        <button id='show'>Click here</button>
+    </div>
+    <div id='after-click' hidden>
+        <h1>You have unlocked the surprise</h1>
+        <p>This was developed by <h3>Yugandhar Salvi</h3>Also this div was hidden with the help of JavaScript tag</p>
+    </div>
+    <br><br>
+    <button id='display-name'>Display name</button>
+    <br><br>
+    <button id='display-name-div'>Show hidden name</button>
+    <div id='name-hidden-div' hidden>
+        <p><strong>Yugandhar Salvi</strong></p>
+    </div><br><br>
+    <div class='Date-time' id='date-time'>
+        <button id='show-date'>Click for date and time</button>
+    </div><br><br>
+    <div class='boxcopy'>
+        <input type="text"  id="box1" placeholder="Type text to be copies"><br><br>
+        <input type="text"  id="box2" placeholder="Things will be copied">
+        <button id='copy'>Press to copy</button>
+    </div><br><br>
+    <div id='ascendingorder'>
+        <p id='array'></p>
+        <button id='to-order' onclick="ascending()">Ascending Order</button>
+    </div>
+    <div id='descendingorder'>
+        <p id='array-01'></p>
+        <button id='to-order-desc' onclick="descending()">Descending Order</button>
+    </div>
+    <br><br>
+    <div id='email-section'>
+        <input type="text" id='email-check' placeholder="Enter email id to check validity"><br>
+        <p id='email-message'></p>
+    </div>
+    <br><br>
+    <div id='to-checkphonenumber'>
+        Enter phone number : <input type="number" id="cellnumber" placeholder="Enter phone number">
+        <p id='is-valid-phone'></p>
+    </div>
+    <br>
+    <div id='to-create-random'>
+        <button id='random-create' onclick="createRandom()">Press for Random Number</button>
+        <h2 id='random-number'></h2>
+    </div>
+    <script src="day2.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+The index.html is hosting webpage, all the validation operation are done using JavaScript, validation.js file

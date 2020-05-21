@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5-6-7 Form validation</title>
+  </head>
+  <body>
+    <h1 style="width: 800px; margin: 30px auto;">
+      Welcome to the Day 5-6-7 assignment
+    </h1>
+    <div id="description" style="width: 800px; margin: 10px auto;">
+      This website is the assignment for Form validation using JavaScript
+    </div>
+    <div id="container" style="width: 600px; margin: 10px auto; padding: 20px;">
+      <form action="" id="form" method="post" onsubmit="return validateForm()">
+        <label for="username">User Id: &nbsp;</label>
+        <input type="text" id="user-id" placeholder="Enter UserName" required />
+        <p>
+          <label for="password">Password : &nbsp;</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            required
+          />
+        </p>
+        <p>
+          <label for="Mobile Number">Phone Number : &nbsp;</label>
+          <input
+            type="number"
+            name="mobile"
+            id="cell-number"
+            placeholder="Enter Phone Number"
+            required
+          />
+        </p>
+        <p>
+          <label for="Age">Age : </label>
+          <input type="number" id="age" placeholder="Enter age" required />
+        </p>
+        <p>
+          <label for="Address">Address : </label>
+          <textarea
+            id="address"
+            cols="30"
+            rows="10"
+            placeholder="Enter Address"
+            required
+          ></textarea>
+        </p>
+        <p>
+          <input type="submit" value="Submit" />
+        </p>
+      </form>
+    </div>
+    <div id="container">
+      <h1 style="text-align: center;">
+        If all the fields are Correct. The page will be redirected to "Not
+        Working webpage.""
+      </h1>
+    </div>
+    <script src="validation.js"></script>
+  </body>
+</html>

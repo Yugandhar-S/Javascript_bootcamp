@@ -1,2 +1,2 @@
-# Javascript_bootcamp
-This repo will hold all the codes I will be writing during the learning process of Javascript
+# Javascript VITA Assignment
+This repo will hold all the codes and files that were given to me by college during the learning of JAVASCRIPT

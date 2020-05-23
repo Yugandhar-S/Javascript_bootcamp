@@ -11,17 +11,25 @@ const saveNotes = function (notes) {
   localStorage.setItem("notes", JSON.stringify(notes));
 };
 
-//Generate a DOm structure for a note
+//Generate a DOM structure for a note
 
 const generateNoteDOM = function (note) {
-  const noteEl = document.createElement("p");
+  const noteEl = document.createElement("div");
+  const textEl = document.createElement("span");
+  const button = document.createElement("button");
 
+  //Set uo the remove note button
+  button.textContent = "x";
+  noteEl.appendChild(button);
+
+  //Setup the note title text
   if (note.title > 0) {
-    noteEl.textContent = note.title;
+    textEl.textContent = note.title;
   } else {
-    noteEl.textContent = `Unnamed note`;
+    textEl.textContent = `Unnamed note`;
   }
 
+  noteEl.appendChild(textEl);
   return noteEl;
 };
 

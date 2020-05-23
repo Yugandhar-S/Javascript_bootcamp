@@ -7,15 +7,17 @@
   </head>
   <body>
     <h1>Welcome to the ToDo app</h1>
-    <input
-      type="text"
-      name=""
-      id="add-todo-text"
-      placeholder="Enter Something to do"
-    />
-    <button id="add-todo">Add Todo</button>
     <input type="text" id="search-text" placeholder="Filter Todos" />
+    <label><input type="checkbox" id="hide-completed" /> HIDE COMPLETED</label>
+
     <div id="todos-section"></div>
+
+    <form action="" id="todo-form">
+      <input type="text" name="addTodo" placeholder="Enter a Todo" />
+      <button>Submit</button>
+    </form>
+    <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script>
+    <script src="todos-function.js"></script>
     <script src="todo-app.js"></script>
   </body>
 </html>

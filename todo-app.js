@@ -1,66 +1,31 @@
-const todos = [
-  {
-    text: "Order lunch",
-    completed: true,
-  },
-  {
-    text: "Clean kitchen",
-    completed: false,
-  },
-  {
-    text: "Buy Groceries",
-    completed: true,
-  },
-  {
-    text: "Do work",
-    completed: false,
-  },
-  {
-    text: "Buy Tickets",
-    completed: false,
-  },
-];
+let todos = getSavedTodos();
 
 const filters = {
   searchText: "",
-};
-
-const renderTodos = function (todos, filters) {
-  let filteredTodos = todos.filter((todo) => {
-    return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
-  });
-
-  const incompleteTodos = filteredTodos.filter(function (todo) {
-    return !todo.completed;
-  });
-
-  document.querySelector("#todos-section").innerHTML = "";
-
-  const summary = document.createElement("h2");
-  summary.textContent = `You have ${incompleteTodos.length} todos left`;
-  document.querySelector("#todos-section").appendChild(summary);
-
-  filteredTodos.forEach(function (todo) {
-    const p = document.createElement("p");
-    p.textContent = todo.text;
-    document.querySelector("#todos-section").appendChild(p);
-  });
+  hideCompleted: false,
 };
 
 renderTodos(todos, filters);
 
-//Listen for new todo creation
-document.querySelector("#add-todo").addEventListener("click", (e) => {
-  e.target.textContent = "Todo was added";
-  console.log("A Todo was added");
-});
-
-//Listen for todo text change
-document.querySelector("#add-todo-text").addEventListener("input", (e) => {
-  console.log(e.target.value);
-});
-
 document.querySelector("#search-text").addEventListener("input", (e) => {
   filters.searchText = e.target.value;
+  renderTodos(todos, filters);
+});
+
+document.querySelector("#todo-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  todos.push({
+    id: uuidv4(),
+    text: e.target.elements.addTodo.value,
+    completed: false,
+  });
+  saveTodos(todos);
+  renderTodos(todos, filters);
+  console.log(todos);
+  e.target.elements.addTodo.value = "";
+});
+
+document.querySelector("#hide-completed").addEventListener("change", (e) => {
+  filters.hideCompleted = e.target.checked;
   renderTodos(todos, filters);
 });

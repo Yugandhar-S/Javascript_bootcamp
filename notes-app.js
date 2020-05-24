@@ -1,27 +1,36 @@
-const notes = getSavedNotes();
+let notes = getSavedNotes();
 
-const filter = {
+const filters = {
   searchText: "",
 };
 
-renderNotes(notes, filter);
+renderNotes(notes, filters);
 
-document.querySelector("#create-note").addEventListener("click", (e) => {
+document.querySelector("#create-note").addEventListener("click", function (e) {
+  const id = uuidv4();
+
   notes.push({
-    id: uuidv4(),
+    id: id,
     title: "",
     body: "",
   });
-
   saveNotes(notes);
-  renderNotes(notes, filter);
+  location.assign(`edit.html#${id}`);
 });
 
-document.querySelector("#search-text").addEventListener("input", (e) => {
-  filter.searchText = e.target.value;
-  renderNotes(notes, filter);
+document.querySelector("#search-text").addEventListener("input", function (e) {
+  filters.searchText = e.target.value;
+  renderNotes(notes, filters);
 });
 
-document.querySelector("#filter-by").addEventListener("change", (e) => {
+document.querySelector("#filter-by").addEventListener("change", function (e) {
   console.log(e.target.value);
+});
+
+const noteId = location.hash.substring(1);
+window.addEventListener("storage", (e) => {
+  if (e.key === "notes") {
+    notes = JSON.parse(e.newValue);
+    renderNotes(notes, filters);
+  }
 });

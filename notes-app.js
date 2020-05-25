@@ -34,3 +34,17 @@ window.addEventListener("storage", (e) => {
     renderNotes(notes, filters);
   }
 });
+
+// const now = moment();
+// console.log(now)
+// console.log(now.format(`MMMM Do, YYYY`));
+// now.subtract(1, "Week").add(20, "Days");
+// console.log(now.format(`MMMM Do, YYYY`));
+// console.log(now.fromNow())
+// const nowTimeStamp=now.valueOf()
+// console.log(moment(nowTimeStamp).toString())
+
+const Birthday = moment();
+Birthday.year(1995).month("October").date(27);
+console.log(Birthday.format(`MMM D, YYYY`));
+console.log(Birthday.fromNow());

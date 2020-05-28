@@ -2,17 +2,21 @@ let notes = getSavedNotes();
 
 const filters = {
   searchText: "",
+  sortBy: "byEdited",
 };
 
 renderNotes(notes, filters);
 
 document.querySelector("#create-note").addEventListener("click", function (e) {
   const id = uuidv4();
+  const timestamp = moment().valueOf();
 
   notes.push({
     id: id,
     title: "",
     body: "",
+    createdAt: timestamp,
+    updatedAt: timestamp,
   });
   saveNotes(notes);
   location.assign(`edit.html#${id}`);
@@ -24,7 +28,8 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
 });
 
 document.querySelector("#filter-by").addEventListener("change", function (e) {
-  console.log(e.target.value);
+  filters.sortBy = e.target.value;
+  renderNotes(notes, filters);
 });
 
 const noteId = location.hash.substring(1);
@@ -34,17 +39,3 @@ window.addEventListener("storage", (e) => {
     renderNotes(notes, filters);
   }
 });
-
-// const now = moment();
-// console.log(now)
-// console.log(now.format(`MMMM Do, YYYY`));
-// now.subtract(1, "Week").add(20, "Days");
-// console.log(now.format(`MMMM Do, YYYY`));
-// console.log(now.fromNow())
-// const nowTimeStamp=now.valueOf()
-// console.log(moment(nowTimeStamp).toString())
-
-const Birthday = moment();
-Birthday.year(1995).month("October").date(27);
-console.log(Birthday.format(`MMM D, YYYY`));
-console.log(Birthday.fromNow());

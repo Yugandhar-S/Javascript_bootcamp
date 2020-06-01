@@ -2,15 +2,22 @@
 
 //Object: myObject --> Object.prototype --> null
 
-const product = {
-  name: "The Da-Vinci code",
-};
+//Array : myArray --> Array.prototype --> Object.prototype --> null
 
-let paper = "soft";
-console.log(paper.toUpperCase());
+//Function : myFunc --> Function.prototype --> Object.prototype --> null
 
-//hasOwnProperty
+/*String : myString --> JS ENGINE Object Wrapper(behind the scene)
+            -->String.prototype --> Object.prototype --> null
 
-console.log(product.hasOwnProperty("price"));
+Number : myNumber -->> Object wrapper -->Number.prototype
+        -->Object.prototype--> null
 
+Boolean : myBoolean --> Object wrapper --> Boolean.prototype
+        -->Object.prototype--> null
+*/
+
+const product = "Computer";
 console.log(product);
+
+const otherProduct = new String("Phone");
+console.log(otherProduct);

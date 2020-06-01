@@ -1,4 +1,10 @@
-/*In the world of prototypes: you don’t create blueprints or classes here, you just create the object. You take some wood and hack together a chair. This chair, an actual object, can function fully as a chair and also serve as a prototype for future chairs. In the world of prototypes, you build a chair and simply create “clones” of it. If you want to build a rocking chair, all you have to do is pick a chair you’ve manufactured earlier, attach two rockers to it, and voilà! You have a rocking chair. You didn’t really need a blueprint for that. Now you can just use this rocking chair for yourself, or perhaps use it as a prototype to create more rocking chairs.*/
+/*In the world of prototypes: you don’t create blueprints or classes here, you just create the object.
+You take some wood and hack together a chair. This chair, an actual object, can function fully as a chair and 
+also serve as a prototype for future chairs. 
+In the world of prototypes, you build a chair and simply create “clones” of it. 
+If you want to build a rocking chair, all you have to do is pick a chair you’ve manufactured earlier, attach two rockers to it,
+and voilà! You have a rocking chair. You didn’t really need a blueprint for that. 
+Now you can just use this rocking chair for yourself, or perhaps use it as a prototype to create more rocking chairs.*/
 
 let chair = {
   type: "chair",

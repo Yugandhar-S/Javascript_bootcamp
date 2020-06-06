@@ -2,6 +2,36 @@ const Hangman = function (word, remainingGuesses) {
   this.word = word.toLowerCase().split("");
   this.remainingGuesses = remainingGuesses;
   this.guessedLetters = [];
+  this.status = "playing";
+};
+
+Hangman.prototype.calculateStatus = function () {
+  const finished = this.word.every((letter) =>
+    this.guessedLetters.includes(letter)
+  );
+
+  // const lettersUnguessed = this.word.filter((letter) => {
+  //   return !this.guessedLetters.includes(letter);
+  // });
+
+  // const finished = lettersUnguessed.length === 0;
+
+  // let finished = true;
+
+  // this.word.forEach((letter) => {
+  //   if (this.guessedLetters.includes(letter)) {
+  //   } else {
+  //     finished = false;
+  //   }
+  // });
+
+  if (this.remainingGuesses === 0) {
+    this.status = "failed";
+  } else if (finished) {
+    this.status = "finished";
+  } else {
+    this.status = "playing";
+  }
 };
 
 Hangman.prototype.getPuzzle = function () {
@@ -30,33 +60,6 @@ Hangman.prototype.makeGuess = function (guess) {
   if (isUnique && isBadGuess) {
     this.remainingGuesses--;
   }
+
+  this.calculateStatus();
 };
-
-// Hangman.prototype.generateDom = function () {
-//   let winPuzzle = document.createElement("h1");
-//   winPuzzle.textContent = this.getPuzzle();
-//   document.getElementById("container").appendChild(winPuzzle);
-//   console.log(this.getPuzzle());
-
-//   let winGuess = document.createElement("p");
-//   winGuess.textContent = this.remainingGuesses;
-//   document.getElementById("container").appendChild(winGuess);
-//   console.log(this.remainingGuesses);
-// };
-
-const puzzleEl = document.querySelector("#puzzle");
-const guessesEl = document.querySelector("#guesses");
-let game1 = new Hangman("Cat", 2);
-
-puzzleEl.textContent = game1.getPuzzle();
-guessesEl.textContent = game1.remainingGuesses;
-
-// game1.generateDom();
-// game2.generateDom()
-
-window.addEventListener("keypress", (e) => {
-  let guess = String.fromCharCode(e.charCode);
-  game1.makeGuess(guess);
-  puzzleEl.textContent = game1.getPuzzle();
-  guessesEl.textContent = game1.remainingGuesses;
-});

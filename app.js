@@ -1,23 +1,15 @@
-//Primitive value : string, number, boolean, null, undefined
+const puzzleEl = document.querySelector("#puzzle");
+const guessesEl = document.querySelector("#guesses");
+let game1 = new Hangman("Cat", 2);
 
-//Object: myObject --> Object.prototype --> null
+puzzleEl.textContent = game1.getPuzzle();
+guessesEl.textContent = game1.remainingGuesses;
+console.log(game1.status);
 
-//Array : myArray --> Array.prototype --> Object.prototype --> null
-
-//Function : myFunc --> Function.prototype --> Object.prototype --> null
-
-/*String : myString --> JS ENGINE Object Wrapper(behind the scene)
-            -->String.prototype --> Object.prototype --> null
-
-Number : myNumber -->> Object wrapper(behind the scene) -->Number.prototype
-        -->Object.prototype--> null
-
-Boolean : myBoolean --> Object wrapper(behind the scene) --> Boolean.prototype
-        -->Object.prototype--> null
-*/
-
-// const product = "Computer";
-// console.log(product.prototype);
-
-// const otherProduct = new String("Phone");
-// console.log(otherProduct);
+window.addEventListener("keypress", (e) => {
+  let guess = String.fromCharCode(e.charCode);
+  game1.makeGuess(guess);
+  puzzleEl.textContent = game1.getPuzzle();
+  guessesEl.textContent = game1.remainingGuesses;
+  console.log(game1.status);
+});

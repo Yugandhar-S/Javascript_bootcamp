@@ -1,0 +1,5 @@
+Getters: Setting up a getter allow us to override what happens when an Object property is looked up.
+Instead of looking for a property value, JS will run the function and use the value the function returns.
+
+Setters: A setter allows us to override what happens when object property is set. This can be useful if we want
+to validate or sanitize data. It can also be useful if you need to do something unique with the value.
